@@ -41,12 +41,12 @@ const Movie = ({ movie, canDel, canFav, setRefresher, setRefresherFav }) => {
   };
   return (
     <div className="bg-slate-700 rounded-lg p-5 ">
-      <p>Title: {movie.movieTitle}</p>
-      <p>Release: {movie.movieReleaseYear}</p>
+      <p>Title: {movie?.movieTitle}</p>
+      <p>Release: {movie?.movieReleaseYear}</p>
       <p>Rating: {<Rating movie={movie} />}</p>
-      <p>{movie.moviePlot}</p>
-      <img className="mb-5" src={movie.movieImage} alt="" />
-      <Link className="mb-5" to={`/movie/${movie._id}`}>
+      <p>{movie?.moviePlot}</p>
+      <img className="mb-5" src={movie?.movieImage} alt="" />
+      <Link className="mb-5" to={`/movie/${movie?._id}`}>
         Read more
       </Link>
       <div className="flex justify-between">

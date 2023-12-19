@@ -1,5 +1,5 @@
 import { dbo } from "../utils/db.js";
-import { ObjectId } from "mongodb";
+
 
 export const addFavorite = async (req, res) => {
   try {
@@ -8,7 +8,7 @@ export const addFavorite = async (req, res) => {
     Movie.acknowledged ? res.json(Movie).end() : res.status(500).end();
     console.log("add", Movie);
   } catch (err) {
-    console.log(err);
+    console.log("add fav error", err);
     res.status(500).end();
   }
 };
@@ -19,7 +19,7 @@ export const getFavorites = async (req, res) => {
 
     res.json(Favorites).end();
   } catch (err) {
-    console.log(err);
+    console.log("get fav error", err);
     res.status(500).end();
   }
 };
@@ -33,7 +33,7 @@ export const removeFavorite = async (req, res) => {
 
     res.json(response).end();
   } catch (err) {
-    console.log("del error", err);
+    console.log("del fav error", err);
     res.status(500).end();
   }
 };

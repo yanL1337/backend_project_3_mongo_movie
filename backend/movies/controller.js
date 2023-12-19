@@ -7,7 +7,7 @@ export const addMovie = async (req, res) => {
     const Movie = await dbo.collection("movies").insertOne(req.body);
     Movie.acknowledged ? res.json(Movie).end() : res.status(500).end();
   } catch (err) {
-    console.log(err);
+    console.log("add eroor", err);
     res.status(500).end();
   }
 };
@@ -18,7 +18,7 @@ export const getMovies = async (req, res) => {
 
     res.json(Movies).end();
   } catch (err) {
-    console.log(err);
+    console.log("get error", err);
     res.status(500).end();
   }
 };
@@ -30,9 +30,8 @@ export const deleteMovie = async (req, res) => {
       .deleteOne({ _id: new ObjectId(req.body.id) });
 
     res.json(response).end();
-    console.log(response);
   } catch (err) {
-    console.log(err);
+    console.log("del error", err);
     res.status(500).end();
   }
 };

@@ -43,7 +43,8 @@ const Handler = () => {
   }, [refresherFav]);
   return (
     <BrowserRouter>
-      <Header />
+      <Header movies={movies} />
+
       <Routes>
         <Route
           path="/"
@@ -61,7 +62,7 @@ const Handler = () => {
         />
         <Route
           path="/movie/:id"
-          element={<MovieDetailPage movies={movies} />}
+          element={<MovieDetailPage setRefresherFav={setRefresherFav} />}
         />
         <Route
           path="/user/favorites"

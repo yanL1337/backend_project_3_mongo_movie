@@ -11,4 +11,6 @@ server.use(express.json());
 
 server.use("/api/movies", moviesRouter);
 server.use("/api/favorites", favoritesRouter);
-server.listen(process.env.PORT, () => console.log("Fliegt jetzt sogar"));
+server.listen(process.env.PORT, () =>
+  console.log(`Fliegt jetzt sogar mit: ${process.env.PORT} Sachen`)
+);
